@@ -1,0 +1,54 @@
+server:
+  port: 8001
+  
+spring:
+  application:
+    name: cloud-payment-service
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: root
+    password: ''
+    url: jdbc:mysql://127.0.0.1:3306/project?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    type: com.alibaba.druid.pool.DruidDataSource
+    
+    
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false
+  global-config:
+    db-config:
+      table-prefix: project_
+  mapper-locations: classpath:com/evmtv/payment/mapper/impl/*.xml
+    
+
+logging:
+  level:
+    root: info
+    '[com.evmtv]': debug
+
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    registry-fetch-interval-seconds: 30 #像服务端拉取服务间隔
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/
+  instance:
+    instance-id: payment8001
+    prefer-ip-address: true
+    lease-renewal-interval-in-seconds: 30 #心跳间隔
+    lease-expiration-duration-in-seconds: 90 #断心跳多久断开
+    
+    
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always
+    info:
+      enabled: true    
+

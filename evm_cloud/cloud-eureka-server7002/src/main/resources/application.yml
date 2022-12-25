@@ -1,0 +1,18 @@
+server:
+  port: 7002
+  
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    hostname: eureka7002
+  client:
+    register-with-eureka: false #自己不注册自己
+    fetch-registry: false #声明自己是注册中心不用在去检索服务
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/
+
+spring:
+  application:
+    name: euraka7002
+
+    

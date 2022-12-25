@@ -1,0 +1,41 @@
+server:
+  port: 80
+  
+spring:
+  application:
+    name: cloud-consumer-service
+
+
+eureka:
+  instance: 
+    hostname: localhost
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka/,http://eureka7002:7002/eureka/
+
+
+feign:
+  circuitbreaker: 
+    enabled: true
+  client:
+    config:
+      CLOUD-PAYMENT-SERVICE: #eureka上注册的application的name
+        connect-timeout: 3500
+        read-timeout: 3500
+        logger-level: full
+        
+
+        
+
+
+
+
+logging:
+  config: classpath:logback-spring.xml
+  file: 
+    name: /opt/logs/cloud/log.log
+  level:
+    root: info
+    '[com.evmtv]': debug
