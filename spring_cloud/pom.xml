@@ -95,6 +95,8 @@
 	 <module>cloud-consumerzk-order80</module>
 	 <module>cloud-consumer-order80</module>
 	 <module>cloud-provider-payment8001-hystrix</module>
+	 <module>cloud-consumer-feign-hystrix-order80</module>
+	 <module>cloud-provider-payment8006-consul</module>
  </modules>
  
 </project>
