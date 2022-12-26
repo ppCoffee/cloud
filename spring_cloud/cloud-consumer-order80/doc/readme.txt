@@ -1,0 +1,2 @@
+clouud2.2.1版本以后不在嵌入ribbon，后续负载均衡可以用gateway的一些组件代替
+如果需要自己手写负载，可以利用discoverClient的instance中的数据来手动进行算法调用

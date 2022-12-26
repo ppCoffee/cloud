@@ -11,6 +11,7 @@
 package com.evmtv.payment.controller;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
@@ -72,6 +73,12 @@ public class PaymentController {
 	        log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
 	    }
 	    return this.discoveryClient;
+	}
+	
+	@GetMapping(value = "/timeout")
+	public String paymentFeignTimeout(){
+	    try { TimeUnit.SECONDS.sleep(3); }catch (Exception e) {e.printStackTrace();}
+	    return serverPort;
 	}
 	
 }

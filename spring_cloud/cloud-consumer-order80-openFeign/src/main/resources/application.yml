@@ -1,0 +1,25 @@
+server:
+  port: 80
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://eureka7001:7001/eureka, http://eureka7002:7002/eureka
+      
+      
+feign:
+  client:
+    config:
+      CLOUD-PAYMENT-SERVICE: 
+        read-timeout: 5000
+        connect-timeout: 5000
+        logger-level: full
+
+        
+logging:
+  config: classpath:logback-spring.xml
+  file: 
+    name: /opt/logs/cloud/log.log
+  level:
+    root: info
+    '[com.evmtv]': debug        
