@@ -26,6 +26,8 @@
     <druid.version>1.1.17</druid.version>
   </properties>
 
+
+	
   <!-- 子模块继承之后，提供作用：锁定版本+子modlue不用写groupId和version  -->
 	<dependencyManagement>
 		<dependencies>
@@ -77,11 +79,14 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
         <configuration>
           <fork>true</fork>
+          <skip>true</skip>
           <addResources>true</addResources>
         </configuration>
       </plugin>
     </plugins>
   </build>
+  
+
   
  <modules>
 	 <module>cloud-provider-payment8001</module>
@@ -97,6 +102,7 @@
 	 <module>cloud-provider-payment8001-hystrix</module>
 	 <module>cloud-consumer-feign-hystrix-order80</module>
 	 <module>cloud-provider-payment8006-consul</module>
+	 <module>cloud-api-common</module>
  </modules>
  
 </project>
