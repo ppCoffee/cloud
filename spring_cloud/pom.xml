@@ -86,6 +86,7 @@
  <modules>
 	 <module>cloud-provider-payment8001</module>
 	 <module>cloud-provider-payment8002</module>
+	 <module>cloud-eureka-server7001</module>
  </modules>
  
 </project>
