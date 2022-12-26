@@ -112,6 +112,8 @@
 	 <module>cloud-consumer-feign-hystrix-order80</module>
 	 <module>cloud-provider-payment8006-consul</module>
 	 <module>cloud-api-common</module>
+	 <module>cloud-config-center-3344</module>
+	 <module>cloud-config-client-3355</module>
  </modules>
  
 </project>
