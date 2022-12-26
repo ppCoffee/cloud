@@ -24,7 +24,8 @@ import util.ResultHelper;
 @RestController
 public class OrderController {
 	
-	public static final String PAYMNET_URL = "http://127.0.0.1:8001";
+	//public static final String PAYMNET_URL = "http://127.0.0.1:8001";
+	public static final String PAYMNET_URL = "http://CLOUD-PAYMENT-SERVICE";
 	
 	@Resource
 	RestTemplate restTemplate;

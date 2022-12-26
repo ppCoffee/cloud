@@ -8,15 +8,11 @@
  * 2022年12月26日
  */
 
-package com.evmtv.payment.controller;
-
-import java.util.List;
+package com.evmtv.payment.controller; 
 
 import javax.annotation.Resource;
 
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.cloud.client.ServiceInstance;
-import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -26,10 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.evmtv.payment.service.PaymentService;
 
 import entity.Payment;
-import lombok.extern.slf4j.Slf4j;
 import util.ResultHelper;
 
-@Slf4j
 @RestController
 public class PaymentController {
 	
@@ -38,9 +32,6 @@ public class PaymentController {
 	
 	@Value("${server.port}")
 	private String serverPort;
-	
-	@Resource
-	private DiscoveryClient discoveryClient;
 	
 	@GetMapping("/get/{id}")
 	public ResultHelper<Payment> get(@PathVariable Long id){
@@ -58,20 +49,6 @@ public class PaymentController {
 			return ResultHelper.result(ResultHelper.SUCCESS, ResultHelper.SUCCESS_MESSAGE + " id " + payment.getId());
 		
 		return ResultHelper.result(ResultHelper.FAILED, ResultHelper.FAILED);
-	}
-
-	 
-	@GetMapping("/discovery")
-	public Object discovery(){
-	    List<String> services = discoveryClient.getServices();
-	    for (String element : services) {
-	        log.info("***** element:"+element);
-	    }
-	    List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-	    for (ServiceInstance instance : instances) {
-	        log.info(instance.getServiceId()+"\t"+instance.getHost()+"\t"+instance.getPort()+"\t"+instance.getUri());
-	    }
-	    return this.discoveryClient;
 	}
 	
 }
