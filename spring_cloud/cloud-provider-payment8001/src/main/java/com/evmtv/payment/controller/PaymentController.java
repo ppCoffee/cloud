@@ -32,4 +32,15 @@ public class PaymentController {
 		
 		return ResultHelper.result(ResultHelper.SUCCESS, ResultHelper.SUCCESS_MESSAGE, paymentService.getById(id));
 	}
+	
+	@GetMapping("/save")
+	public ResultHelper<Payment> save(Payment payment){
+		
+		boolean success = paymentService.save(payment);
+		if(success)
+			return ResultHelper.result(ResultHelper.SUCCESS, ResultHelper.SUCCESS_MESSAGE + " id " + payment.getId());
+		
+		return ResultHelper.result(ResultHelper.FAILED, ResultHelper.FAILED);
+	}
+	
 }
