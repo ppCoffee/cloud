@@ -14,6 +14,8 @@ import javax.annotation.Resource;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.evmtv.payment.service.PaymentService;
@@ -28,13 +30,15 @@ public class PaymentController {
 	PaymentService paymentService;
 	
 	@GetMapping("/get/{id}")
-	public ResultHelper<Payment> get(@PathVariable Integer id){
+	public ResultHelper<Payment> get(@PathVariable Long id){
 		
-		return ResultHelper.result(ResultHelper.SUCCESS, ResultHelper.SUCCESS_MESSAGE, paymentService.getById(id));
+		Payment payment = paymentService.getById(id);
+		
+		return ResultHelper.result(ResultHelper.SUCCESS, ResultHelper.SUCCESS_MESSAGE, payment);
 	}
 	
-	@GetMapping("/save")
-	public ResultHelper<Payment> save(Payment payment){
+	@PostMapping("/save")
+	public ResultHelper<Payment> save(@RequestBody Payment payment){
 		
 		boolean success = paymentService.save(payment);
 		if(success)

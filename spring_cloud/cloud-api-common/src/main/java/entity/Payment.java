@@ -24,11 +24,11 @@ import lombok.ToString;
 @ToString
 @AllArgsConstructor
 @NoArgsConstructor
-@JsonSerialize(using = ToStringSerializer.class)
 public class Payment implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
+	@JsonSerialize(using = ToStringSerializer.class)
 	private Long id;
 	private String serial;
 }
