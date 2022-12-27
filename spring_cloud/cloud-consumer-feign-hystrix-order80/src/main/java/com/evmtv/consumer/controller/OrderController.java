@@ -47,7 +47,7 @@ public class OrderController {
     @GetMapping("/consumer/hystrix/timeout/{id}")
     public String paymentInfo_TimeOut(@PathVariable Integer id){
     	
-    	int i = 10/0;
+    	//int i = 10/0;
     	
         return paymentService.paymentInfo_TimeOut(id);
     }

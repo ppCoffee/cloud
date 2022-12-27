@@ -11,6 +11,10 @@
   
   
   <dependencies>
+  		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-zipkin</artifactId>
+		</dependency>
         <!--新增hystrix-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
