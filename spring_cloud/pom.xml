@@ -117,6 +117,7 @@
 	 <module>cloud-config-client-3366</module>
 	 <module>cloud-stream-provider8801</module>
 	 <module>cloud-stream-consumer8802</module>
+	 <module>cloud-stream-consumer8803</module>
  </modules>
  
 </project>
