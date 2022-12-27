@@ -31,6 +31,11 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+				<version>2021.1</version>
+			</dependency>
+			<dependency>
 				<groupId>org.springframework.cloud</groupId>
 				<artifactId>spring-cloud-starter-zipkin</artifactId>
 				<version>2.2.8.RELEASE</version>
@@ -123,6 +128,9 @@
 	 <module>cloud-stream-provider8801</module>
 	 <module>cloud-stream-consumer8802</module>
 	 <module>cloud-stream-consumer8803</module>
+	 <module>cloudalibaba-provider-payment9001</module>
+	 <module>cloudalibaba-provider-payment9002</module>
+	 <module>cloudalibaba-consumer-nacos-order83</module>
  </modules>
  
 </project>
