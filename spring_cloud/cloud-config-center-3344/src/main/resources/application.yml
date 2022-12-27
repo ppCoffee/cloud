@@ -9,11 +9,24 @@ spring:
         git:
           uri: https://github.com/ppCoffee/springcloud-config.git #填写你自己的github路径
           username: ppCoffee
-          password: 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
+          password: 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
           search-paths: springcloud-config
           refresh-rate: 2
+          timeout: 30
         default-label: master
-          
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' # curl -X POST "http://localhost:3344/actuator/busrefresh" 访问时间贼tm慢，经常timeout，如果需要定点通知在地址后加上 /客户端的application的name:port
+
+
 eureka:
   client:
     service-url:
