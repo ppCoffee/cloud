@@ -11,5 +11,9 @@ spring:
       config:
         server-addr: localhost:8848 #配置中心地址
         file-extension: yaml #指定yaml格式的配置
+        namespace: adba297e-79ec-403a-b73a-cf16086fa385
+        group: CPNS_GROUP
+        
+        
         
  #application.name - profiles.active.fileType  例: nacos-config-client-dev.yaml  一定要yaml，yml无法识别
