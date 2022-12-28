@@ -32,6 +32,11 @@
 		<dependencies>
 			<dependency>
 				<groupId>com.alibaba.cloud</groupId>
+				<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+				<version>2021.1</version>
+			</dependency>
+			<dependency>
+				<groupId>com.alibaba.cloud</groupId>
 				<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
 				<version>2021.1</version>
 			</dependency>
@@ -131,6 +136,7 @@
 	 <module>cloudalibaba-provider-payment9001</module>
 	 <module>cloudalibaba-provider-payment9002</module>
 	 <module>cloudalibaba-consumer-nacos-order83</module>
+	 <module>cloudalibaba-config-nacos-client3377</module>
  </modules>
  
 </project>
