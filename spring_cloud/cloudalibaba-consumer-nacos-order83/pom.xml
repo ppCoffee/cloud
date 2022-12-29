@@ -11,11 +11,11 @@
   
   
   <dependencies> 
-    <!-- nacos后续版本不自带负载了，需要手动引入 -->
+    <!-- nacos后续版本不自带负载了，需要手动引入 
 	<dependency>
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-loadbalancer</artifactId>
-	</dependency>
+	</dependency>-->
   	 <dependency>
         <groupId>com.alibaba.cloud</groupId>
         <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
