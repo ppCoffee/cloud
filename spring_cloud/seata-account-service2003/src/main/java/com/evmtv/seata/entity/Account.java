@@ -1,5 +1,5 @@
 /**
- * Order.java
+ * Account.java
  * Copyright(JAVA) EnRich DTV Group co.,Ltd
  * 功能描述：
  *   
@@ -10,31 +10,39 @@
 
 package com.evmtv.seata.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
- 
 import java.math.BigDecimal;
 
 import com.baomidou.mybatisplus.annotation.TableField;
- 
- 
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
-public class Order
-{
+@NoArgsConstructor 
+public class Account {
+ 
     private Long id;
-    
+ 
+    /**
+     * 用户id
+     */
     @TableField(value = "user_id")
     private Long userId;
-    
-    @TableField(value = "product_id")
-    private Long productId;
  
-    private Integer count;
+    /**
+     * 总额度
+     */
+    private BigDecimal total;
  
-    private BigDecimal money;
+    /**
+     * 已用额度
+     */
+    private BigDecimal used;
  
-    private Integer status; //订单状态：0：创建中；1：已完结
+    /**
+     * 剩余额度
+     */
+    private BigDecimal residue;
 }

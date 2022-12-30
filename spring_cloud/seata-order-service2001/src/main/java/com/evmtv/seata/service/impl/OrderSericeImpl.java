@@ -40,7 +40,7 @@ public class OrderSericeImpl extends ServiceImpl<OrderMapper, Order> implements 
      * 创建订单->调用库存服务扣减库存->调用账户服务扣减账户余额->修改订单状态
      */
     @Override
-    @GlobalTransactional(name = "fsp-create-order",rollbackFor = Exception.class)
+    @GlobalTransactional(name = "seata-order-service-tx-group",rollbackFor = Exception.class) //name唯一即可
     public void create(Order order){
         log.info("----->开始新建订单");
         //新建订单
@@ -59,8 +59,8 @@ public class OrderSericeImpl extends ServiceImpl<OrderMapper, Order> implements 
          
         //修改订单状态，从零到1代表已经完成
         log.info("----->修改订单状态开始");
+        order.setStatus(1);
         orderMapper.updateById(order);
-//        orderMapper.update(order.getUserId(),0);
         log.info("----->修改订单状态结束");
  
         log.info("----->下订单结束了");
