@@ -12,6 +12,7 @@ package com.evmtv.sentinel.controller;
 
 import javax.annotation.Resource;
 
+import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,6 +38,7 @@ public class CircleBreakerController {
     
     @Resource
     private PaymentService paymentService;
+    
    
     
     @SuppressWarnings("unchecked")
@@ -74,6 +76,7 @@ public class CircleBreakerController {
 
     @GetMapping(value = "/consumer/paymentSQL/{id}")
     public ResponseUtil<Payment> paymentSQL(@PathVariable("id") Long id) {
+    	
         return paymentService.paymentSQL(id);
     }
     
