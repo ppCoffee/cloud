@@ -22,3 +22,11 @@ feign:
   sentinel:
     enabled: true
     
+logging:
+  config: classpath:logback-spring.xml
+  file: 
+    name: /opt/logs/boot/log.log
+  level:
+    root: info
+    '[com.evmtv]': debug
+    

@@ -22,9 +22,11 @@ import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.evmtv.sentinel.service.PaymentService;
 
 import entity.Payment;
+import lombok.extern.slf4j.Slf4j;
 import util.ResponseUtil;
 import util.ResultHelper;
 
+@Slf4j
 @RestController
 public class CircleBreakerController {
    
@@ -59,13 +61,15 @@ public class CircleBreakerController {
     //fallback
     public ResultHelper<Payment> handlerFallback(@PathVariable  Long id,Throwable e) {
         Payment payment = new Payment(id,"null");
+        log.error("",e.getMessage());
         return ResultHelper.result("444","兜底异常handlerFallback,exception内容  "+e.getMessage(),payment);
     }
   
     //blockHandler
-    public ResultHelper<Payment> blockHandler(@PathVariable  Long id,BlockException blockException) {
+    public ResultHelper<Payment> blockHandler(@PathVariable  Long id,BlockException e) {
         Payment payment = new Payment(id,"null");
-        return  ResultHelper.result("445","blockHandler-sentinel限流,无此流水: blockException  "+blockException.getMessage(),payment);
+        log.error("",e.getMessage());
+        return  ResultHelper.result("445","blockHandler-sentinel限流,无此流水: blockException  "+e.getMessage(),payment);
     }
 
     @GetMapping(value = "/consumer/paymentSQL/{id}")
